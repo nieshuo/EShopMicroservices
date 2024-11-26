@@ -20,7 +20,7 @@ namespace BuildingBlocks.Messaging.MassTransit
                 }
                 config.UsingRabbitMq((context, configurator) =>
                 {
-                    configurator.Host(new Uri(configuration["MessageBroker:Host"]!),host =>
+                    configurator.Host(new Uri(configuration["MessageBroker:Host"]!), configuration["MessageBroker:VirtualHost"]!, host =>
                     {
                         host.Username(configuration["MessageBroker:UserName"]!);
                         host.Password(configuration["MessageBroker:Password"]!);
